@@ -1,3 +1,6 @@
 ﻿  OPENGL_TESTDlg.cpp
+  OPENGL_TEST.cpp
+  코드를 생성하고 있습니다...
+  LINK : D:\mfc_programs\OPENGL\OPENGL_TEST2\Debug\OPENGL_TEST.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
 OPENGL_TESTDlg.obj : warning LNK4258: '/entry:WinMainCRTStartup' 지시문은 '/ENTRY:wWinMainCRTStartup' 스위치와 호환되지 않습니다. 무시됩니다.
   OPENGL_TEST.vcxproj -> D:\mfc_programs\OPENGL\OPENGL_TEST2\Debug\OPENGL_TEST.exe
