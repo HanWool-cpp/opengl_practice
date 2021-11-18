@@ -68,9 +68,9 @@ void COPENGL_TESTDlg::Setting_Draw()
 	shaderProgram = create_program();
 	
 	float vertices[] = {
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		0.0f, 0.5f, 0.0f
+		0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,
+		-0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
+		0.0f, 0.5f, 0.0f,  0.0f, 0.0f, 1.0f
 	};
 
 	// make VAO, VBO object
@@ -82,8 +82,10 @@ void COPENGL_TESTDlg::Setting_Draw()
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	//  configure vertex attributes
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3*sizeof(float)));
+	glEnableVertexAttribArray(1);
 	// release binding of VAO, VBO
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);	
@@ -155,6 +157,15 @@ void COPENGL_TESTDlg::OnTimer(UINT_PTR nIDEvent)
 
 		// draw triangle
 		glUseProgram(shaderProgram);
+				
+		// update the uniform color
+		static float timeValue = 0.0f;
+		timeValue += 0.1f;
+		
+		// float greenValue = sin(timeValue) / 2.0f + 0.5f;
+		// int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+		// glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+				
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		
@@ -228,17 +239,25 @@ GLuint COPENGL_TESTDlg::create_program() {
 	const GLchar* vertexShaderSource =
 		"#version 330 core\n"
 		"layout (location = 0) in vec3 aPos;"
+		"layout (location = 1) in vec3 aColor;"
+
+		"out vec3 ourColor;"
+
 		"void main()"
 		"{"
-		"gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);"
+		"gl_Position = vec4(aPos, 1.0);"
+		"ourColor = aColor;"
+		
 		"}";
 	
 	const GLchar* fragmentShaderSource =
 		"#version 330 core\n"
 		"out vec4 FragColor;"
+		"in vec3 ourColor;"
+		// "uniform vec4 ourColor;"
 		"void main()"
 		"{"
-		"FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);"
+		"FragColor = vec4(ourColor, 1.0);"
 		"}";
 	
 	// make and compile vertex shader object 
