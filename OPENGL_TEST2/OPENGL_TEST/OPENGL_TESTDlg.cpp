@@ -73,6 +73,13 @@ void COPENGL_TESTDlg::Setting_Draw()
 		0.0f, 0.5f, 0.0f,  0.0f, 0.0f, 1.0f
 	};
 
+	float textCoords[] = {
+		0.0f, 0.0f,
+		1.0f, 0.0f,
+		0.5f, 1.0f
+	};
+
+
 	// make VAO, VBO object
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
