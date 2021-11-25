@@ -73,12 +73,6 @@ void COPENGL_TESTDlg::Setting_Draw()
 		0.0f, 0.5f, 0.0f,  0.0f, 0.0f, 1.0f
 	};
 
-	float textCoords[] = {
-		0.0f, 0.0f,
-		1.0f, 0.0f,
-		0.5f, 1.0f
-	};
-
 
 	// make VAO, VBO object
 	glGenVertexArrays(1, &VAO);
@@ -172,7 +166,16 @@ void COPENGL_TESTDlg::OnTimer(UINT_PTR nIDEvent)
 		// float greenValue = sin(timeValue) / 2.0f + 0.5f;
 		// int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
 		// glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-				
+		
+		// transform
+		glm::mat4 trans = glm::mat4(1.0f);
+		trans = glm::translate(trans, glm::vec3(0.3f, 0.0f, 0.0f));
+		trans = glm::rotate(trans, glm::radians(-90.0f), glm::vec3(0.0, 0.0, 1.0));
+		trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+		
+		unsigned int transformLoc = glGetUniformLocation(shaderProgram, "transform");
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		
@@ -248,11 +251,12 @@ GLuint COPENGL_TESTDlg::create_program() {
 		"layout (location = 0) in vec3 aPos;"
 		"layout (location = 1) in vec3 aColor;"
 
+		"uniform mat4 transform;"
 		"out vec3 ourColor;"
 
 		"void main()"
 		"{"
-		"gl_Position = vec4(aPos, 1.0);"
+		"gl_Position = transform * vec4(aPos, 1.0);"
 		"ourColor = aColor;"
 		
 		"}";
