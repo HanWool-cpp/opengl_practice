@@ -33,6 +33,8 @@
 #pragma comment(lib, "OpenGL32.lib")
 #pragma comment(lib, "./lib/glew32.lib")
 
+#define PI 3.1415926
+
 // COPENGL_TESTDlg 대화 상자
 class COPENGL_TESTDlg : public CDialogEx
 {
@@ -91,4 +93,6 @@ public:
 
 
 	unsigned int VAO, VBO, EBO;
+
+	float Return_Y(float x1, float y1, float x2, float y2, float input);
 };

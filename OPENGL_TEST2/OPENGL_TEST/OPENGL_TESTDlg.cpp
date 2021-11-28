@@ -80,9 +80,9 @@ void COPENGL_TESTDlg::Setting_Draw()
 	shaderProgram = create_program();
 	
 	float vertices[] = {
-		0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,
-		-0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,
-		0.0f, 0.5f, 0.0f,  0.0f, 0.0f, 1.0f
+		0.5f, -0.5f, 0.0f,
+		-0.5f, -0.5f, 0.0f,
+		0.0f, 0.5f, 0.0f
 	};
 
 
@@ -95,10 +95,10 @@ void COPENGL_TESTDlg::Setting_Draw()
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	//  configure vertex attributes
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3*sizeof(float)));
-	glEnableVertexAttribArray(1);
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3*sizeof(float)));
+	//glEnableVertexAttribArray(1);
 	// release binding of VAO, VBO
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);	
@@ -165,34 +165,93 @@ void COPENGL_TESTDlg::OnTimer(UINT_PTR nIDEvent)
 	
 	if (nIDEvent == 1)
 	{		
-		glClearColor((float)25 / 255, (float)45 / 255, (float)47 / 255, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// draw triangle
-		glUseProgram(shaderProgram);
-				
-		// update the uniform color
-		static float timeValue = 0.0f;
-		timeValue += 0.1f;
-		
-		// float greenValue = sin(timeValue) / 2.0f + 0.5f;
-		// int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-		// glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-		
-		// transform
-		glm::mat4 trans = glm::mat4(1.0f);
-		trans = glm::translate(trans, glm::vec3(0.3f, 0.0f, 0.0f));
-		trans = glm::rotate(trans, glm::radians(-90.0f), glm::vec3(0.0, 0.0, 1.0));
-		trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
-		
-		unsigned int transformLoc = glGetUniformLocation(shaderProgram, "transform");
-		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+		//for (int i = 0; i < 44; i++)
+		//{
+		//	{
+		//		// float greenValue = sin(timeValue) / 2.0f + 0.5f;
+		//		int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+		//		object_color_R = 0;		 object_color_G = 1.0;		 object_color_B = 0;
+		//		glUniform4f(vertexColorLocation, object_color_R, object_color_G, object_color_B, 1.0f);
 
-		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		//		// transform
+		//		float radian = Return_Y(0,-180, 43, 180, i);
+
+
+		//		glm::mat4 trans = glm::mat4(1.0f);
+		//		trans = glm::translate(trans, glm::vec3(0.3f, 0.0f, 0.0f));
+		//		trans = glm::rotate(trans, glm::radians(radian), glm::vec3(0.0, 0.0, 1.0));
+		//		trans = glm::scale(trans, glm::vec3(0.1, 0.1, 0.1));
+
+		//		unsigned int transformLoc = glGetUniformLocation(shaderProgram, "transform");
+		//		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
+		//		glBindVertexArray(VAO);
+		//		glDrawArrays(GL_TRIANGLES, 0, 3);
+		//	}
+		//}
+		static int flag = 0;
+		if (flag == 0)
+		{
+			flag = 1;
+			glClearColor((float)25 / 255, (float)45 / 255, (float)47 / 255, 1.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+			// draw triangle
+			glUseProgram(shaderProgram);
+
+			// update the uniform color
+			static float object_color_R = 0;
+			static float object_color_G = 0;
+			static float object_color_B = 0;
+
+			for (int i = 0; i < 44; i++)
+			{
+				// float greenValue = sin(timeValue) / 2.0f + 0.5f;
+				int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+				object_color_R = 0;		 object_color_G += 0.025;	 object_color_B = 0;
+				glUniform4f(vertexColorLocation, object_color_R, object_color_G, object_color_B, 1.0f);
+
+				object_color_G += 0.025;
+
+				// transform
+				float radian = Return_Y(0, 360, 44, 0, i);
+				printf("radian : %f, x좌표 :%f, y좌표 : %f\n", radian, 0.5f*cos(radian), 0.5f*sin(radian));
+				glm::mat4 trans = glm::mat4(1.0f);
+				trans = glm::translate(trans, glm::vec3(0.7f*cos(radian*PI / 180), 0.7f*sin(radian*PI / 180), 0.0f));
+				trans = glm::rotate(trans, glm::radians(radian - 90.0f), glm::vec3(0.0, 0.0, 1.0));
+				trans = glm::scale(trans, glm::vec3(0.05, 0.05, 0.05));
+
+				unsigned int transformLoc = glGetUniformLocation(shaderProgram, "transform");
+				glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
+				glBindVertexArray(VAO);
+				glDrawArrays(GL_TRIANGLES, 0, 3);
+			}
+			// screen update (if double buffer)
+			SwapBuffers(m_pDC->GetSafeHdc());
+		}
+		{
+			//// float greenValue = sin(timeValue) / 2.0f + 0.5f;
+			//int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+			//object_color_R = 0;		 object_color_G = 1.0;		 object_color_B = 0;
+			//glUniform4f(vertexColorLocation, object_color_R, object_color_G, object_color_B, 1.0f);
+
+			//// transform
+			//glm::mat4 trans = glm::mat4(1.0f);
+			//trans = glm::translate(trans, glm::vec3(-0.3f, 0.0f, 0.0f));
+			//trans = glm::rotate(trans, glm::radians(180.0f), glm::vec3(0.0, 0.0, 1.0));
+			//trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+
+			//unsigned int transformLoc = glGetUniformLocation(shaderProgram, "transform");
+			//glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+
+			//glBindVertexArray(VAO);
+			//glDrawArrays(GL_TRIANGLES, 0, 3);
+		}
+
 		
-		// screen update (if double buffer)
-		SwapBuffers(m_pDC->GetSafeHdc());
+
 	}
 	
 	CDialogEx::OnTimer(nIDEvent);
@@ -260,28 +319,27 @@ GLuint COPENGL_TESTDlg::create_program() {
 	// GLSL
 	const GLchar* vertexShaderSource =
 		"#version 330 core\n"
-		"layout (location = 0) in vec3 aPos;"
-		"layout (location = 1) in vec3 aColor;"
+		"layout (location = 0) in vec3 aPos;\n"
+		//"layout (location = 1) in vec3 aColor;"
+		"uniform mat4 transform;\n"
+		//"out vec3 ourColor;"
 
-		"uniform mat4 transform;"
-		"out vec3 ourColor;"
-
-		"void main()"
-		"{"
-		"gl_Position = transform * vec4(aPos, 1.0);"
-		"ourColor = aColor;"
+		"void main()\n"
+		"{\n"
+		"	gl_Position = transform * vec4(aPos, 1.0);\n"
+		//"ourColor = aColor;"
 		
-		"}";
+		"}\n\0";
 	
 	const GLchar* fragmentShaderSource =
 		"#version 330 core\n"
-		"out vec4 FragColor;"
-		"in vec3 ourColor;"
-		// "uniform vec4 ourColor;"
-		"void main()"
-		"{"
-		"FragColor = vec4(ourColor, 1.0);"
-		"}";
+		"out vec4 FragColor;\n"
+		// "in vec3 ourColor;"
+		"uniform vec4 ourColor;\n"
+		"void main()\n"
+		"{\n"
+		"	FragColor = ourColor;\n"
+		"}\n\0";
 	
 	// make and compile vertex shader object 
 	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -440,4 +498,13 @@ void COPENGL_TESTDlg::OnClose()
 	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
 	AfxGetMainWnd()->PostMessageW(WM_CLOSE);
 	CDialogEx::OnClose();
+}
+
+float COPENGL_TESTDlg::Return_Y(float x1, float y1, float x2, float y2, float input)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	float output;
+
+	output = ((y2 - y1)*(input - x1)) / (x2 - x1) + y1;
+	return output;
 }
