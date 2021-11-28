@@ -56,6 +56,18 @@ BOOL COPENGL_TESTDlg::OnInitDialog()
 
 	Setting_Draw();
 
+	//// 프로세스 불러오기
+	//STARTUPINFO si = { 0, };
+	//PROCESS_INFORMATION pi;
+	//si.cb = sizeof(si);
+
+	//TCHAR command[] = _T("D:\\py_test\\examples\\get_image\\dist\\get_image.exe");
+	//SetCurrentDirectory(_T("D:"));
+
+	//CreateProcess(
+	//	NULL, command, NULL, NULL,
+	//	TRUE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi);
+
 	SetTimer(1, 1000, NULL);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.

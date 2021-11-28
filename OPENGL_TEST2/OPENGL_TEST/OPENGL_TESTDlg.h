@@ -23,6 +23,12 @@
 
 #include <iostream>
 
+// createprocess
+#include <stdio.h>
+#include <tchar.h>
+#include <windows.h>
+
+
 //사용할 라이브러리를 지정해줍니다.
 #pragma comment(lib, "OpenGL32.lib")
 #pragma comment(lib, "./lib/glew32.lib")
