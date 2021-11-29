@@ -28,12 +28,22 @@
 #include <tchar.h>
 #include <windows.h>
 
+#include <ft2build.h>
+#include FT_FREETYPE_H 
+
+// opengl text 관련
+#include <map>
+#include <string>
 
 //사용할 라이브러리를 지정해줍니다.
 #pragma comment(lib, "OpenGL32.lib")
 #pragma comment(lib, "./lib/glew32.lib")
 
+#pragma comment(lib, "./lib/freetyped.lib")
+
 #define PI 3.1415926
+
+
 
 // COPENGL_TESTDlg 대화 상자
 class COPENGL_TESTDlg : public CDialogEx
@@ -89,10 +99,16 @@ public:
 
 
 
-
-
+	// 1 : 삼각형 , 2 : 글자
+	int object_mode;
 
 	unsigned int VAO, VBO, EBO;
 
 	float Return_Y(float x1, float y1, float x2, float y2, float input);
+
+	//// opengl text
+	FT_Library ft;
+	FT_Face face;
+	void Setting_Opengl_Text();
+	void RenderText(std::string text, float x, float y, float scale, glm::vec3 color);
 };
