@@ -1,0 +1,37 @@
+﻿  OPENGL_TESTDlg.cpp
+d:\mfc_programs\opengl\opengl_test - 복사본\opengl_test\opengl_testdlg.cpp(211): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 'sprintf' 선언을 참조하십시오.
+d:\mfc_programs\opengl\opengl_test - 복사본\opengl_test\opengl_testdlg.cpp(336): warning C4305: '+=' : 'double'에서 'float'(으)로 잘립니다.
+d:\mfc_programs\opengl\opengl_test - 복사본\opengl_test\opengl_testdlg.cpp(339): warning C4305: '+=' : 'double'에서 'float'(으)로 잘립니다.
+d:\mfc_programs\opengl\opengl_test - 복사본\opengl_test\opengl_testdlg.cpp(342): warning C4244: '인수' : 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\mfc_programs\opengl\opengl_test - 복사본\opengl_test\opengl_testdlg.cpp(366): warning C4244: '인수' : 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  OPENGL_TEST.cpp
+  코드를 생성하고 있습니다...
+OPENGL_TESTDlg.obj : warning LNK4258: '/entry:WinMainCRTStartup' 지시문은 '/ENTRY:wWinMainCRTStartup' 스위치와 호환되지 않습니다. 무시됩니다.
+freetyped.lib(autofit.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(autofit.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(ftbase.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(ftbase.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(ftbitmap.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(ftbitmap.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(ftinit.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(ftinit.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(bdf.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(bdf.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(cff.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(cff.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(type1cid.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(type1cid.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(ftgzip.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(ftgzip.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(ftlzw.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(ftlzw.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(pcf.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(pcf.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(pfr.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(pfr.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(psaux.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(psaux.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(pshinter.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(pshinter.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(psnames.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(psnames.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(raster.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(raster.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(sdf.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(sdf.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(sfnt.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(sfnt.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(smooth.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(smooth.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(truetype.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(truetype.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(type1.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(type1.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(type42.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(type42.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(winfnt.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(winfnt.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(ftsystem.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(ftsystem.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+freetyped.lib(ftdebug.obj) : warning LNK4099: 'vc120.pdb' PDB를 'freetyped.lib(ftdebug.obj)' 또는 'D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\vc120.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+  OPENGL_TEST.vcxproj -> D:\mfc_programs\OPENGL\OPENGL_TEST - 복사본\Debug\OPENGL_TEST.exe
